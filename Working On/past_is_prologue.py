@@ -1,3 +1,8 @@
+import re
+def sorted_1( l ): 
+    convert = lambda text: int(text) if text.isdigit() else text 
+    alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ] 
+    return sorted(l, key = alphanum_key)
 n = int(input())
 
 for i in range(n):
@@ -13,12 +18,12 @@ for i in range(n):
             m_count[event[3]][0] += 1
         elif event[2].title() == "Night" and event[-1].lower() == "true":
             m_count[event[3]][1] += 1
-    for k in sorted(m_count.keys()):
-        ans = ""
-        ans+=k+","
-        for i in range(len(m_count[k])):
-            if i == len(m_count[k])-1:
-                ans+=str(m_count[k][i])
-            else:
-                ans+=str(m_count[k][i])+","
-        print(ans)
+    counts = [str(i) for i in m_count.keys()]
+    for k in sorted_1(counts):
+        if m_count[k][0] == 0 and m_count[k][1] == 0:
+          continue
+        else:
+          ans = ""
+          ans+=k+","
+          ans+=str(m_count[k][0])+","+str(m_count[k][1])
+          print(ans)
