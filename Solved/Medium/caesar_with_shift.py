@@ -25,7 +25,7 @@ def build_shift_dict(shift):
         full_keys = lower_keys + upper_keys
         full_values = shift_lower_values + upper_shift_values
 
-        shift_dict = dict(zip(full_keys, full_values))
+        shift_dict = dict(zip(full_values, full_keys))
         return shift_dict        
 
 for t in range(int(input())):
@@ -40,7 +40,7 @@ for t in range(int(input())):
     ans  = ""
     for i in strings:
         if i.isalpha():
-            if int(left_right[shift]) == 1:
+            if int(left_right[shift]) == 0:
                 shift_dict = build_shift_dict(-1*int(shift_vals[shift]))
                 ans += shift_dict[i]
                 shift+=1
