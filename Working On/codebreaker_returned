@@ -1,0 +1,43 @@
+from collections import Counter
+import decimal
+def round_to_nearest_decimal(number):
+    context = decimal.getcontext()
+    context.rounding = decimal.ROUND_HALF_UP
+    return    float(decimal.Decimal(str(number)).quantize(decimal.Decimal('.001')))
+for t in range(int(input())):
+    words = []
+    digraphs = []
+    trigraphs = []
+    for t in range(int(input())):
+        x = input()
+        ans_string = ""
+        for i in x:
+            if i.isalnum() or i == " ":
+                ans_string += i
+        ans_string = ans_string.split()
+        for i in ans_string:
+            words.append(i.upper())
+    for word in words:
+        for i in range(len(word) - 1):
+            if word[i].isalpha() and word[i+1].isalpha():
+                digraphs.append(word[i:i+2])
+
+            
+            if i < len(word) - 2 and word[i].isalpha() and word[i+1].isalpha() and word[i+2].isalpha():
+                trigraphs.append(word[i:i+3])
+
+
+    digraphs = sorted(digraphs)
+    trigraphs = sorted(trigraphs)
+    count_digraphs = Counter(digraphs)
+    count_digraphs = dict(sorted(count_digraphs.items()))   
+    count_trigraphs = Counter(trigraphs)
+    count_trigraphs = dict(sorted(count_trigraphs.items()))
+    for i in count_digraphs:
+        percent = (count_digraphs[i]/len(digraphs))*100
+        percent = round_to_nearest_decimal(percent)
+        print(i + ": " + str("{:.3f}".format(percent)) + "%")
+    for i in count_trigraphs:
+        percent = (count_trigraphs[i]/len(trigraphs))*100
+        percent = round_to_nearest_decimal(percent)
+        print(i + ": " + str("{:.3f}".format(percent)) + "%")
