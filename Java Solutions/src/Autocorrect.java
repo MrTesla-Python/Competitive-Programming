@@ -34,7 +34,7 @@ public class Autocorrect {
             {
                 for (int j = 0; j < word.length(); j++)
                 {
-                    if (word.charAt(j) != dict[i].charAt(j));
+                    if (word.charAt(j) != dict[i].charAt(j))
                     {
                         count++;
                     }
