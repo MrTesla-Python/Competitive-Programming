@@ -9,11 +9,13 @@ public class soldierandbananas {
         StringTokenizer st =  new StringTokenizer(r.readLine());
 
         int k = Integer.parseInt(st.nextToken());
-        int n = Integer.parseInt(st.nextToken());
+        long n = Integer.parseInt(st.nextToken());
         int w = Integer.parseInt(st.nextToken());
 
-        int total_cost = 0;
-        for (int i = 1; i <= w; i++) total_cost += (i*k);
-        System.out.println(total_cost - n);
+        long total_cost = w*(w + 1) / 2;
+        total_cost *= k;
+        System.out.println(Math.max(total_cost - n, 0));
+
+        pr.close();
     }
 }

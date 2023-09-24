@@ -21,5 +21,6 @@ public class team
             if (a+b+c >= 2) solves++;
         }
         System.out.println(solves);
+        pw.close();
     }
 }
