@@ -18,7 +18,7 @@ public class speedingticket {
             should[i] = new int[] {Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())};
         }
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < m; i++)
         {
             st = new StringTokenizer(r.readLine());
             actual[i] = new int[] {Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())};
@@ -26,19 +26,23 @@ public class speedingticket {
 
         int [] compares1 = new int[100];
         int [] compares2 = new int [100];
+        int index = 0;
         for (int[] speeds : should)
         {
             for (int i = 0; i < speeds[0]; i++)
             {
-                compares1[i] = speeds[1];
+                compares1[index] = speeds[1];
+                index++;
             }
         }
 
+        index = 0;
         for (int[] speeds : actual)
         {
             for (int i = 0; i < speeds[0]; i++)
             {
-                compares2[i] = speeds[1];
+                compares2[index] = speeds[1];
+                index++;
             }
         }
 
