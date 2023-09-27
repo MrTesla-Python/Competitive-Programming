@@ -20,6 +20,11 @@ public class likechecker
             prev = curr;
             n /= 10;
         }
+        if (n <= prev) 
+        {
+            System.out.println("No");
+            check = false;
+        }
         if (check == true) System.out.println("Yes");
         in.close();
     }
