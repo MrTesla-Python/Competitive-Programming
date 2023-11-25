@@ -32,8 +32,17 @@ public class bovinegenomics
             }
             for (int j = 0; j < ncows; j++)
             {
-                if (check.contains(Character.toString(badcows[j].charAt(i))));
+                if (check.contains(Character.toString(goodcows[j].charAt(i))))
+                {
+                    checks = false;
+                    break;
+                }
+
             }
+            if (checks) count++;
+            check.clear();
         }
+        pw.println(count);
+        pw.close();
     }
 }
