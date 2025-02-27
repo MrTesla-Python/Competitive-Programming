@@ -9,9 +9,11 @@ def solve(grid, grid_l):
             if grid[i][j] == 0:
                 continue
 
-            dp[i][j] += dp[i-1][j]
-            dp[i][j] += dp[i][j-1]
-        
+            else:
+                visited = set()
+                visited.add((0,0))
+                return unique_paths_dfs()
+
     return dp[-1][-1]
     
 for t in range(int(input())):
