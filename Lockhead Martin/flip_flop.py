@@ -7,6 +7,6 @@ for t in range(int(input())):
     for i in range(R):
         for j in range(C):
             ans[j][i] = test[i][j]
-            
+    count = sorted(count, key=lambda x: x.split('.'))      
     for i in range(len(ans)):
         print(",".join(ans[i]))
