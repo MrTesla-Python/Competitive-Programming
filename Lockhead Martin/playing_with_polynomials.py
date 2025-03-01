@@ -13,6 +13,7 @@ for t in range(int(input())):
             continue
         elif index == 0:
             ans += f"{num}"
+
         elif index == 1:
             if num == 1:
                 ans += "+x"
@@ -21,10 +22,14 @@ for t in range(int(input())):
             elif num > 1:
                 ans += f"+{num}x"
             else:
-                ans += f"-{num}x"
+                ans += f"{num}x"
         else:
-            if num < 0:
-                ans += f"-{num}x^{index}"
+            if num == 1:
+                ans += f"+x^{index}"
+            elif num == -1:
+                ans += f"-x^{index}"
+            elif num < 0:
+                ans += f"{num}x^{index}"
             else:
                 ans += f"+{num}x^{index}"
     if ans[0] == "+":
